@@ -1,7 +1,7 @@
 //aca voy a definir los endpoints de los autores 
 //y los voy a exportar para poder utilizarlos 
 import { Router } from "express";
-import read from '../controllers/chapters/read.js'
+import read from '../controller/chapters/read.js'
 
 let router = Router()
 

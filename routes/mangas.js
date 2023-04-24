@@ -1,7 +1,7 @@
 //aca voy a definir los endpoints de los autores 
 //y los voy a exportar para poder utilizarlos 
 import { Router } from "express";
-import read from '../controllers/mangas/read.js'
+import read from '../controller/mangas/read.js'
 
 let router = Router()
 
