@@ -1,5 +1,5 @@
 import { Router } from "express";
-import read from '../controllers/companies/read.js'
+import read from '../controller/companies/read.js'
 
 let router = Router()
 
