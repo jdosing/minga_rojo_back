@@ -1,3 +1,4 @@
+import createHttpError from 'http-errors'
 import Category from './../../models/Category.js'
 
 //la funcion controladora debe ser asincrona para poder esperar la respuesta de mongo
@@ -7,18 +8,21 @@ import Category from './../../models/Category.js'
 
 let read = async(req, res, next) => { 
   try{        
-    let all = await Category.find()
-    return res.status(200)
+    let all =await Category.find()
+
+      if (all.length>0){
+        return res.status(200)
         .json({
-          categories: all
+          categories:all
         })
+      } 
+      return next(createHttpError(404, "El recurso no se encontro"))
+      
   }catch(error){
     console.log(error);
-    return res.status(400)
-      .json({
-        error: "ocurrió un erro wachin!"
-      })
+    next(error)
   }
+
 }
 
 export default read
